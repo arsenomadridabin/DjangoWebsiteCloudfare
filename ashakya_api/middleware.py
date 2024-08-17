@@ -1,3 +1,10 @@
+import requests
+import pytz
+from django.utils.deprecation import MiddlewareMixin
+from django.utils import timezone
+from datetime import datetime, timedelta
+from .models import Visitor
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
@@ -5,13 +12,6 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
-
-import requests
-import pytz
-from django.utils.deprecation import MiddlewareMixin
-from django.utils import timezone
-from datetime import datetime, timedelta
-from .models import Visitor
 
 # Define the local timezone
 LOCAL_TZ = pytz.timezone('America/Chicago')  # Replace with your local time zone
