@@ -1,0 +1,381 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abin Shakya</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fira Code', monospace;
+        color: #f8f8f2;
+        line-height: 1.6;
+        background: url({% static 'images/image.jpeg' %}) no-repeat center center fixed;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.5);
+        background-blend-mode: multiply;
+    }
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    }
+    header {
+        color: #bd93f9;
+        text-align: center;
+        border-bottom: 1px solid #6272a4;
+        padding-bottom: 10px;
+    }
+    header h1 {
+        margin: 0.5em 0;
+        font-size: 2.5em;
+    }
+    header p {
+        margin: 0;
+        color: #ff79c6;
+        font-size: 1em;
+    }
+    .job p {
+        color: #ff79c6;
+    }
+    h2 {
+        color: #50fa7b;
+        border-bottom: 2px solid #6272a4;
+        padding-bottom: 5px;
+        font-size: 1.8em;
+    }
+    h3 {
+        color: #3FAD46;
+        font-size: 1.3em;
+    }
+    .section {
+        margin-top: 20px;
+    }
+    .experience, .education {
+        padding-left: 10px;
+    }
+    .job, .school {
+        border-left: 3px solid #8be9fd;
+        margin: 10px 0;
+        padding-left: 10px;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #44475a;
+        color: #f8f8f2;
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+    }
+    a {
+        color: #8be9fd;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .skills-table-container {
+        width: 100%;
+        overflow-x: auto;
+        position: relative;
+        border: 2px solid #50fa7b;
+        border-radius: 4px;
+    }
+    .skills-table-container::-webkit-scrollbar {
+        height: 12px;
+    }
+    .skills-table-container::-webkit-scrollbar-track {
+        background: #282a36;
+        border-radius: 10px;
+    }
+    .skills-table-container::-webkit-scrollbar-thumb {
+        background: #6272a4;
+        border-radius: 10px;
+        border: 3px solid #282a36;
+    }
+    .skills-table-container::-webkit-scrollbar-thumb:hover {
+        background: #8be9fd;
+    }
+    .skills-table {
+        width: auto;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+    .skills-table th,
+    .skills-table td {
+        padding: 10px;
+        border: 1px solid #282a36;
+        background-color: #44475a;
+        color: #f8f8f2;
+        white-space: nowrap;
+    }
+    .skills-table th {
+        background-color: #50fa7b;
+        color: #282a36;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+    }
+    .skills-table th:first-child {
+        z-index: 3;
+    }
+    .skills-table td:first-child {
+        background-color: #50fa7b;
+        color: #282a36;
+        position: sticky;
+        left: 0;
+        z-index: 1;
+    }
+    .download-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: #0f0f0f;
+        background-color: #35d75e;
+        border: 2px solid #aeafbb;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-top: 20px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .download-btn:hover {
+        background-color: #8be9fd;
+        color: #282a36;
+        border-color: #50fa7b;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+            padding: 10px;
+        }
+        header h1 {
+            font-size: 2em;
+        }
+        header p {
+            font-size: 0.9em;
+        }
+        h2 {
+            font-size: 1.5em;
+        }
+        h3 {
+            font-size: 1.2em;
+        }
+        .experience, .education {
+            padding-left: 0;
+        }
+        .job, .school {
+            padding-left: 5px;
+        }
+        .skills-table th, .skills-table td {
+            padding: 5px;
+            font-size: 0.9em;
+        }
+        .download-btn {
+            padding: 8px 16px;
+            font-size: 0.9em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1.8em;
+        }
+        header p {
+            font-size: 0.8em;
+        }
+        h2 {
+            font-size: 1.3em;
+        }
+        h3 {
+            font-size: 1.1em;
+        }
+        .skills-table th, .skills-table td {
+            padding: 3px;
+            font-size: 0.8em;
+        }
+        .download-btn {
+            padding: 6px 12px;
+            font-size: 0.8em;
+        }
+    }
+</style>
+</head>
+<body>
+    <script>
+        console.log(document.referrer);
+    </script>
+<div class="container">
+    <header>
+        <h1>Abin Shakya</h1>
+        <p> ML Researcher | Data Scientist | Algorithmic Trader | Mathematics Enthusiast </p>
+        <a href="{% static 'files/Abin_CV.pdf' %}" download="Abin_Shakya_CV.pdf" class="download-btn">Download CV</a>
+    </header>
+
+    <div class="section profile">
+        <h2>Profile</h2>
+        <p>I am a PhD student in the Department of Computer Science and Engineering at Louisiana State University. My research interests lie in designing graph-based neural networks to model complex relationships and interactions inherent in various physical systems. Additionally, I am passionate about creating robust and reliable AI models that not only deliver accurate predictions but also quantify the uncertainty associated with these predictions. I enjoy building trading algorithms for fun. It is my way of trying to teach my computer to earn its keep around here--so far, it hasn't asked for a raise!</p>
+    </div>
+
+    <div class="section skills">
+        <h2>Skills and Research Interests</h2>
+        <div class="skills-table-container">
+            <table class="skills-table">
+            <tr>
+    <th>Programming/Frameworks</th>
+    <td>Python</td>
+    <td>Django</td>
+    <td>R</td>
+    <td>SQL</td>
+    <td>C</td>
+    <td>C++</td>
+    <td>CUDA</td>
+    <td>JAVA</td>
+</tr>
+<tr>
+    <th>ML/Data Science frameworks</th>
+    <td>Pytorch</td>
+    <td>Tensorflow</td>
+    <td>Keras</td>
+    <td>Pandas</td>
+    <td>PySpark</td>
+    <td>PyG</td>
+    <td>Scikit Learn</td>
+    <td>Matplotlib</td>
+</tr>
+<tr>
+    <th>Research Interests</th>
+    <td>Graph Learning</td>
+    <td>Representation Learning</td>
+    <td>Generative AI </td>
+    <td> High Performance and Parallel Computing </td>
+    <td>Dimensionality Reduction Techniques</td>
+    <td>Uncertainity Quantification in Neural Networks</td>
+    <td>XAI</td>
+    <td> Time Series Analysis</td>
+</tr>
+<tr>
+    <th>Research Domain of Interest</th>
+    <td> Molecular Dynamics </td>
+    <td> Finance / Quantitative Research</td>
+    <td> Physics </td>
+    <td> Mathematics </td>
+    <td> Drug Disovery </td>
+    <td> Language </td>
+    <td> Vision </td>
+    <td> Digital Forensic </td>
+</tr>
+<tr>
+    <th>Other Skills/Interest</th>
+    <td>Algorithmic Trading</td>
+    <td>Software Engineering</td>
+    <td>Pattern Recognition</td>
+    <td>DevOps</td>
+    <td>Linux</td>
+    <td>Job Scheduling in HPC Cluster</td>
+    <td>Latex</td>
+    <td> Chess </td>
+</tr>
+	    </table>
+        </div>
+    </div>
+
+    <div class="section experience">
+        <h2>Professional Experience</h2>
+        <div class="job">
+            <h3>Graduate Research Assistant - Louisiana State University</h3>
+            <p><strong>August 2021 - Present</strong></p>
+            <ul>
+                <li> Working on Graph Neural Network accelerated Molecular Dynamics to get insight on atom distribution inside the core of Earth. </li>
+                <li>Designed and constructed advanced Deep Learning Based Potential Energy models for molecular dynamics applications. These models played a pivotal role in advancing our ability to simulate the Earth's interior, enabling the study of Bulk Earth composition at an unprecedented scale.</li>
+                <li> Implemented a state-of-the-art Bayesian Neural Network architecture to enhance prediction uncertainty in Neural Networks, contributing to more reliable and robust predictions. </li>
+                <li> Contributed to the realm of interpretable machine learning by employing Model Agnostic Methods to interpret and analyze ML models, with a specific focus on a Malware Dataset. </li>
+                <li>Tackled intricate computational geometry challenges, including 3D convex hulls and alpha shapes, which were seamlessly integrated into Molecular Dynamic applications. The visualization of these geometric solutions significantly enhanced our comprehension of molecular interactions and structures.</li>
+                <li>Developed indexing algorithms that empower efficient queries on compressed data, resulting in optimized data retrieval processes. This innovation directly contributed to the increased speed and effectiveness of data analysis.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <h3>Graduate Teaching Assistant - Louisiana State University</h3>
+            <p><strong>January 2023 - Present</strong></p>
+            <ul>
+                <li> Grade and conduct office hours for the course : Applied Deep Learning (CSC4343).</li>
+                <li> Teach and Grade the course : Introduction to Python (CS2700).</li>
+            </ul>
+        </div>
+        <div class="job">
+            <h3>Senior Software Engineer - Sparrow Pay Private Limited</h3>
+            <p><strong> October 2019 - August 2021</strong></p>
+            <ul>
+                <li>Build a middle-ware layer called Service Layer that integrates APIs from multiple vendors (both SOAP and REST API) and expose a consistent REST API for our clients. </li>
+                <li>Managed continuous integration and deployment (CI/CD) processes, overseeing the DevOps lifecycle including staging deployments and configurations for client-side testing.</li>
+                <li>Carried out a complete upgrade and transition of the codebase from Django 1.8 to Django 2.2, integrating modern web development techniques to boost system stability.</li>
+                <li>Developed a custom task scheduler using the Celery framework to automate essential backend operations, such as generating financial reports, reconciling transactions, and sending periodic transaction summaries via email to clients.</li>
+                <li>Enhanced the performance of a flight search engine through strategic implementation of advanced caching techniques and parallel programming.</li>
+                <li>Implemented secure file uploads to AWS S3 using presigned URLs to improve data security and optimizing access efficiency in cloud storage environments.</li>
+                <li>Collaborated closely with the finance and accounts departments to analyze and rectify discrepancies in financial documentation, enhancing accuracy and compliance.</li>
+                <li> Offered mentorship and technical guidance to junior software engineers, directing project strategies and promoting professional growth within the team.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <h3>Software Engineer - Sparrow Pay Private Limited</h3>
+            <p><strong> October 2017 - October 2019</strong></p>
+            <ul>
+                <li>Developed client facing and admin user interface in Angular JS.</li>
+                <li>Build Rest APIs using Django Rest Framework to perform CRUD operations(Flight Booking , Hotel Booking, Electricity Bill Payment etc).</li>
+                <li> Integration of Web SDK to facilitate online payments.</li>
+                <li>Collaborated closely with the Operations team to ensure the provision of essential data required for their workflows.</li>
+                <li> Address and resolve technical issues reported by Customer Support. </li>
+                <li> Document APIs in Swagger.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section education">
+        <h2>Education</h2>
+        <div class="school">
+            <h3>PhD in Computer Science</h3>
+            <p><strong>Louisiana State University</strong> - August 2021 - Present (4.062/4.0)</p>
+        </div>
+        <div class="school">
+            <h3> Bachelors of Computer Engineering</h3>
+            <p><strong>Tribhuvan University</strong> - November 2013 - September 2017 (3.602/4.1)</p>
+        </div>
+    </div>
+
+    <div class="section publications">
+        <h2>Publications</h2>
+        <div class="school">
+            <ul>
+                <li>
+                    <p><strong>Shakya, A.</strong>, Ghosh, D.B., Jackson, C., Morra, G., Karki, B.B. (2024). <em>Insights into core-mantle differentiation from bulk Earth melt simulations.</em> Scientific Reports. DOI: <a href="https://doi.org/10.1038/s41598-024-69873-8" target="_blank">10.1038/s41598-024-69873-8</a>.</p>
+                </li>
+                <li>
+                    <p><strong>Shakya, A.</strong>, Pokharel, A., Bhattarai, A., Sitikhu, P., Shakya, S. (2018). <em>Real-Time Stock Prediction Using Neural Network.</em> 8th International Conference, Confluence 2018— IEEE. ISBN: 978-1-5386-1720-5.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        Copyright 2024 &copy; Abin Shakya. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>

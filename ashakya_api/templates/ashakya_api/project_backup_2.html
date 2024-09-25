@@ -2,24 +2,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Abin Shakya{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    <style>
-        /* Copy all the CSS from the original index.html here */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Fira Code', monospace;
-            color: #f8f8f2;
-            line-height: 1.6;
-            background: url('{% static "image.jpeg" %}') no-repeat center center fixed;
-            background-size: cover;
-            background-color: rgba(0, 0, 0, 0.4);
-            background-blend-mode: multiply;
-        }
-        .container {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abin Shakya - Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fira Code', monospace;
+        color: #f8f8f2;
+        line-height: 1.6;
+        background: url('image.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+        background-blend-mode: multiply;
+    }
+    .container {
         width: 85%;
         margin: 20px auto;
         background: #282a36;
@@ -108,24 +107,38 @@
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
-    </style>
-    {% block extra_css %}{% endblock %}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>{% block header_title %}Abin Shakya{% endblock %}</h1>
-            <p>{% block header_subtitle %}ML Researcher | Data Scientist | Algorithmic Trader | Mathematics Enthusiast{% endblock %}</p>
-        </header>
+<div class="container">
+    <header>
+        <h1>Abin Shakya</h1>
+        <p>Projects</p>
+    </header>
 
-        {% block content %}
-        {% endblock %}
-
-        <footer>
-            Copyright {% now "Y" %} &copy; Abin Shakya. All rights reserved.
-        </footer>
-    </div>
-
-    {% block extra_js %}{% endblock %}
+    <div class="section projects">
+        <h2>Research Projects</h2>
+        
+        <div class="project">
+            <h3>Graph Neural Network Accelerated Molecular Dynamics</h3>
+            <p>Developed a Graph Neural Network model to accelerate Molecular Dynamics simulations for studying atom distribution in Earth's core.</p>
+            <ul>
+		    <li>Achieved significant speedup in simulation time by building a deep potential accelerated simulation</li>
+            	    <li> Implemented coordination module to understand the atomic correlations and local structures. </li>
+	    </ul>
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Graph Neural Networks</span>
+                <span class="tag">Molecular Dynamics</span>
+            </div>
+            <div class="project-gif">
+                <img src="/static/images/Recorded_screen_1_V3.gif" alt="GNN Molecular Dynamics Demo">
+            </div>
+        </div>
+    <footer>
+        Copyright 2024 &copy; Abin Shakya. All rights reserved.
+    </footer>
+</div>
 </body>
 </html>
