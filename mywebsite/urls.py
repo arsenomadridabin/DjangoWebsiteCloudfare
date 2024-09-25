@@ -21,4 +21,5 @@ from ashakya_api import views
 urlpatterns = [
     path('kakulin/', admin.site.urls),
     path('',views.home,name='home'),
+    path('projects/',views.projects,name='projects'),
 ]

@@ -1,6 +1,225 @@
-{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abin Shakya</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fira Code', monospace;
+        color: #f8f8f2;
+        line-height: 1.6;
+        background: url({% static 'images/image.jpeg' %}) no-repeat center center fixed;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.5);
+        background-blend-mode: multiply;
+    }
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    }
+    header {
+        color: #bd93f9;
+        text-align: center;
+        border-bottom: 1px solid #6272a4;
+        padding-bottom: 10px;
+    }
+    header h1 {
+        margin: 0.5em 0;
+        font-size: 2.5em;
+    }
+    header p {
+        margin: 0;
+        color: #ff79c6;
+        font-size: 1em;
+    }
+    .job p {
+        color: #ff79c6;
+    }
+    h2 {
+        color: #50fa7b;
+        border-bottom: 2px solid #6272a4;
+        padding-bottom: 5px;
+        font-size: 1.8em;
+    }
+    h3 {
+        color: #3FAD46;
+        font-size: 1.3em;
+    }
+    .section {
+        margin-top: 20px;
+    }
+    .experience, .education {
+        padding-left: 10px;
+    }
+    .job, .school {
+        border-left: 3px solid #8be9fd;
+        margin: 10px 0;
+        padding-left: 10px;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #44475a;
+        color: #f8f8f2;
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+    }
+    a {
+        color: #8be9fd;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .skills-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        border: 2px solid #50fa7b;
+        overflow-x: auto;
+        display: block;
+    }
+    .skills-table::-webkit-scrollbar {
+        height: 12px;
+    }
+    .skills-table::-webkit-scrollbar-track {
+        background: #282a36;
+        border-radius: 10px;
+    }
+    .skills-table::-webkit-scrollbar-thumb {
+        background: #6272a4;
+        border-radius: 10px;
+        border: 3px solid #282a36;
+    }
+    .skills-table::-webkit-scrollbar-thumb:hover {
+        background: #8be9fd;
+    }
+    .skills-table th {
+        background-color: #50fa7b;
+        color: #282a36;
+        padding: 10px;
+        text-align: left;
+        border: 2px solid #282a36;
+        white-space: nowrap;
+    }
+    .skills-table td {
+        background-color: #44475a;
+        color: #f8f8f2;
+        padding: 10px;
+        text-align: center;
+        border: 2px solid #282a36;
+        white-space: nowrap;
+    }
+    .skills-table th, .skills-table td {
+        border-radius: 4px;
+    }
+    .download-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: #0f0f0f;
+        background-color: #35d75e;
+        border: 2px solid #aeafbb;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-top: 20px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .download-btn:hover {
+        background-color: #8be9fd;
+        color: #282a36;
+        border-color: #50fa7b;
+    }
 
-{% block content %}
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+            padding: 10px;
+        }
+        header h1 {
+            font-size: 2em;
+        }
+        header p {
+            font-size: 0.9em;
+        }
+        h2 {
+            font-size: 1.5em;
+        }
+        h3 {
+            font-size: 1.2em;
+        }
+        .experience, .education {
+            padding-left: 0;
+        }
+        .job, .school {
+            padding-left: 5px;
+        }
+        .skills-table th, .skills-table td {
+            padding: 5px;
+            font-size: 0.9em;
+        }
+        .download-btn {
+            padding: 8px 16px;
+            font-size: 0.9em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1.8em;
+        }
+        header p {
+            font-size: 0.8em;
+        }
+        h2 {
+            font-size: 1.3em;
+        }
+        h3 {
+            font-size: 1.1em;
+        }
+        .skills-table th, .skills-table td {
+            padding: 3px;
+            font-size: 0.8em;
+        }
+        .download-btn {
+            padding: 6px 12px;
+            font-size: 0.8em;
+        }
+    }
+</style>
+
+</head>
+<body>
+	    <script>
+        	console.log(document.referrer);
+    	    </script>
+<div class="container">
+    <header>
+        <h1>Abin Shakya</h1>
+        <p> ML Researcher | Data Scientist | Algorithmic Trader | Mathematics Enthusiast </p>
+    	<a href="{% static 'files/Abin_CV.pdf' %}" download="Abin_Shakya_CV.pdf" class="download-btn">Download CV</a>
+    </header>
+
     <div class="section profile">
         <h2>Profile</h2>
         <p>I am a PhD student in the Department of Computer Science and Engineering at Louisiana State University. My research interests lie in designing graph-based neural networks to model complex relationships and interactions inherent in various physical systems. Additionally, I am passionate about creating robust and reliable AI models that not only deliver accurate predictions but also quantify the uncertainty associated with these predictions. I enjoy building trading algorithms for fun. It is my way of trying to teach my computer to earn its keep around here--so far, it hasn't asked for a raise!</p>
@@ -14,8 +233,11 @@
                 <td>Python</td>
                 <td>Django</td>
                 <td>R</td>
+                <td>SQL</td>
+                <td>C</td>
                 <td>C++</td>
                 <td>CUDA</td>
+                <td>JAVA</td>
                 <td>Matlab</td>
             </tr>
             <tr>
@@ -31,6 +253,8 @@
                 <th>Research Interests</th>
                 <td>Graph Learning</td>
                 <td>Representation Learning</td>
+                <td>Generative AI </td>
+                <td> High Performance and Parallel Computing </td>
                 <td>Dimensionality Reduction Techniques</td>
                 <td>Uncertainity Quantification in Neural Networks</td>
                 <td>XAI</td>
@@ -77,9 +301,7 @@
             <ul>
                 <li> Grade and conduct office hours for the course : Applied Deep Learning (CSC4343).</li>
                 <li> Teach and Grade the course : Introduction to Python (CS2700).</li>
-            	<li> Grade and conduct office hours for the course : Data Science and Analytics (CSC2730).</li>
-		<li> Grade and conduct office hours for the course : Interactive Computer Graphics (CSC4356) </li>
-	    </ul>
+            </ul>
         </div>
         <div class="job">
             <h3>Senior Software Engineer - Sparrow Pay Private Limited</h3>
@@ -117,9 +339,11 @@
         </div>
         <div class="school">
             <h3> Bachelors of Computer Engineering</h3>
-            <p><strong>Tribhuvan University</strong> - November 2013 - September 2017 (3.602/4.0)</p>
+            <p><strong>Tribhuvan University</strong> - November 2013 - September 2017 (3.602/4)</p>
         </div>
     </div>
+
+    <div class="section honors">
 
     <div class="section publications">
         <h2>Publications</h2>
@@ -134,4 +358,10 @@
             </ul>
         </div>
     </div>
-{% endblock %}
+
+    <footer>
+        Copyright 2024 &copy; Abin Shakya. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>

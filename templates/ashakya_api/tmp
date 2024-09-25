@@ -88,12 +88,24 @@
     a:hover {
         text-decoration: underline;
     }
-    .skills-table-container {
+
+        .skills-table-container {
         width: 100%;
         overflow-x: auto;
         position: relative;
         border: 2px solid #50fa7b;
         border-radius: 4px;
+        margin-bottom: 20px;
+    }
+    .skills-table-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to right, transparent, #282a36);
+        pointer-events: none;
     }
     .skills-table-container::-webkit-scrollbar {
         height: 12px;
@@ -111,7 +123,7 @@
         background: #8be9fd;
     }
     .skills-table {
-        width: auto;
+        width: 150%; /* Adjust this value to control how much of the table is visible */
         border-collapse: separate;
         border-spacing: 0;
     }
@@ -238,62 +250,57 @@
         <h2>Skills and Research Interests</h2>
         <div class="skills-table-container">
             <table class="skills-table">
-            <tr>
-    <th>Programming/Frameworks</th>
-    <td>Python</td>
-    <td>Django</td>
-    <td>R</td>
-    <td>SQL</td>
-    <td>C</td>
-    <td>C++</td>
-    <td>CUDA</td>
-    <td>JAVA</td>
-</tr>
-<tr>
-    <th>ML/Data Science frameworks</th>
-    <td>Pytorch</td>
-    <td>Tensorflow</td>
-    <td>Keras</td>
-    <td>Pandas</td>
-    <td>PySpark</td>
-    <td>PyG</td>
-    <td>Scikit Learn</td>
-    <td>Matplotlib</td>
-</tr>
-<tr>
-    <th>Research Interests</th>
-    <td>Graph Learning</td>
-    <td>Representation Learning</td>
-    <td>Generative AI </td>
-    <td> High Performance and Parallel Computing </td>
-    <td>Dimensionality Reduction Techniques</td>
-    <td>Uncertainity Quantification in Neural Networks</td>
-    <td>XAI</td>
-    <td> Time Series Analysis</td>
-</tr>
-<tr>
-    <th>Research Domain of Interest</th>
-    <td> Molecular Dynamics </td>
-    <td> Finance / Quantitative Research</td>
-    <td> Physics </td>
-    <td> Mathematics </td>
-    <td> Drug Disovery </td>
-    <td> Language </td>
-    <td> Vision </td>
-    <td> Digital Forensic </td>
-</tr>
-<tr>
-    <th>Other Skills/Interest</th>
-    <td>Algorithmic Trading</td>
-    <td>Software Engineering</td>
-    <td>Pattern Recognition</td>
-    <td>DevOps</td>
-    <td>Linux</td>
-    <td>Job Scheduling in HPC Cluster</td>
-    <td>Latex</td>
-    <td> Chess </td>
-</tr>
-	    </table>
+                <tr>
+                    <th>Programming/Frameworks</th>
+                    <td>Python</td>
+                    <td>Django</td>
+                    <td>R</td>
+                    <td>SQL</td>
+                    <td>C</td>
+                    <td>C++</td>
+                    <td>CUDA</td>
+                    <td>JAVA</td>
+                    <td>Matlab</td>
+                </tr>
+                <tr>
+                    <th>ML/Data Science frameworks</th>
+                    <td>Pytorch</td>
+                    <td>Tensorflow</td>
+                    <td>Keras</td>
+                    <td>Pandas</td>
+                    <td>PySpark</td>
+                    <td>Scikit Learn</td>
+                </tr>
+                <tr>
+                    <th>Research Interests</th>
+                    <td>Graph Learning</td>
+                    <td>Representation Learning</td>
+                    <td>Generative AI </td>
+                    <td> High Performance and Parallel Computing </td>
+                    <td>Dimensionality Reduction Techniques</td>
+                    <td>Uncertainity Quantification in Neural Networks</td>
+                    <td>XAI</td>
+                    <td> Time Series Analysis</td>
+                </tr>
+                <tr>
+                    <th>Research Domain of Interest</th>
+                    <td> Molecular Dynamics </td>
+                    <td> Finance / Quantitative Research</td>
+                    <td> Physics </td>
+                    <td> Mathematics </td>
+                    <td> Language </td>
+                    <td> Vision </td>
+                </tr>
+                <tr>
+                    <th>Other Skills/Interest</th>
+                    <td>Algorithmic Trading</td>
+                    <td>Software Engineering</td>
+                    <td>Pattern Recognition</td>
+                    <td>DevOps</td>
+                    <td>Linux</td>
+                    <td>Latex</td>
+                </tr>
+            </table>
         </div>
     </div>
 

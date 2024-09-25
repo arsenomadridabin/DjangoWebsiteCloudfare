@@ -4,6 +4,10 @@ from django.utils.deprecation import MiddlewareMixin
 from django.utils import timezone
 from datetime import datetime, timedelta
 from .models import Visitor
+import logging
+
+logger = logging.getLogger('__name__')
+
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -29,11 +33,16 @@ class VisitorMiddleware(MiddlewareMixin):
                 timestamp__gte=ten_minutes_ago
             ).exists():
                 # Make an API request to get geolocation data
-                access_key = '4959d4309ddf57c2de44f7dd9bcfbac7'
-                url = f'http://api.ipstack.com/{ip_address}?access_key={access_key}'
-
+                #ip_stack_access_key = '4959d4309ddf57c2de44f7dd9bcfbac7'
+                #url = f'http://api.ipstack.com/{ip_address}?access_key={ip_stack_access_key}'
+                
+                ip_geo_access_key='254e7d78cc1f47ba8519473c18baabae'
+                url = f'https://api.ipgeolocation.io/ipgeo?apiKey={ip_geo_access_key}&ip={ip_address}'
+                logger.info("url:")
+                logger.info(url)
                 try:
                     response = requests.get(url)
+                    logger.info(response)
                     geo_data = response.json()
 
                     # Get the current time in the local timezone
@@ -44,16 +53,28 @@ class VisitorMiddleware(MiddlewareMixin):
                         ip_address=ip_address,
                         user_agent=user_agent,
                         country_name=geo_data.get('country_name', ''),
-                        region_name=geo_data.get('region_name', ''),
-                        zip_code=geo_data.get('zip', ''),
+                        region_name=geo_data.get('state_prov', ''),
+                        zip_code=geo_data.get('zipcode', ''),
                         latitude=geo_data.get('latitude', 0.0),
                         longitude=geo_data.get('longitude', 0.0),
                         timestamp=local_time,  # Save the local time
                         city=geo_data.get('city',''),
-                        referer=referer
+                        referer=referer,
+                        isp=geo_data.get('isp',''),
+                        organization=geo_data.get('organization','')
                     )
 
-                except requests.RequestException as e:
+                except Exception as e:
+                    logger.info("Exception Visitor object creation:")
+                    import traceback
+                    logger.info(traceback.format_exc())
                     # Handle exceptions if needed
-                    pass
-
+                    try:
+                        Visitor.objects.create(referer=referer,user_agent=user_agent,ip_address=ip_address)
+                    except:
+                        pass
+        else:
+            if request.path == "/static/files/Abin_CV.pdf":
+                Visitor.objects.create(ip_address=ip_address,user_agent=user_agent,download=True)
+            else:
+                pass

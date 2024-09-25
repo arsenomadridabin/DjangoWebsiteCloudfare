@@ -15,6 +15,9 @@ class Visitor(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6,default=0.0)
     city = models.CharField(max_length=255, blank=True, null=True)
     referer = models.CharField(max_length=255,blank=True,null=True)
+    download = models.BooleanField(default=False,null=True),
+    organization = models.CharField(max_length=255,blank=True,null=True)
+    isp = models.CharField(max_length=255,blank=True,null=True)
     def __str__(self):
         return f"{self.ip_address} - {self.timestamp}"
 

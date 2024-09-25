@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abin Shakya - Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fira Code', monospace;
+        color: #f8f8f2;
+        line-height: 1.6;
+        background: url('image.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+        background-blend-mode: multiply;
+    }
+    .container {
+        width: 85%;
+        margin: 20px auto;
+        background: #282a36;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    }
+    header {
+        color: #bd93f9;
+        text-align: center;
+        border-bottom: 1px solid #6272a4;
+        padding-bottom: 10px;
+    }
+    header h1 {
+        margin: 0.5em 0;
+    }
+    header p {
+        margin: 0;
+        color: #ff79c6;
+    }
+    h2 {
+        color: #50fa7b;
+        border-bottom: 2px solid #6272a4;
+        padding-bottom: 5px;
+    }
+    h3 {
+        color: #3FAD46;
+    }
+    .section {
+        margin-top: 20px;
+    }
+    .project {
+        border-left: 3px solid #8be9fd;
+        margin: 20px 0;
+        padding-left: 20px;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background-color: #44475a;
+        color: #f8f8f2;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    a {
+        color: #8be9fd;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .project-tags {
+        margin-top: 10px;
+    }
+    .tag {
+        display: inline-block;
+        background-color: #44475a;
+        color: #f8f8f2;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin-right: 5px;
+        font-size: 0.9em;
+    }
+    .navigation {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .navigation a {
+        margin: 0 10px;
+        color: #ff79c6;
+    }
+    .project-gif {
+        margin-top: 15px;
+        text-align: center;
+    }
+    .project-gif img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Abin Shakya</h1>
+        <p>Projects</p>
+    </header>
+
+    <div class="section projects">
+        <h2>Research Projects</h2>
+        
+        <div class="project">
+            <h3>Graph Neural Network Accelerated Molecular Dynamics</h3>
+            <p>Developed a Graph Neural Network model to accelerate Molecular Dynamics simulations for studying atom distribution in Earth's core.</p>
+            <ul>
+		    <li>Achieved significant speedup in simulation time by building a deep potential accelerated simulation</li>
+            	    <li> Implemented coordination module to understand the atomic correlations and local structures. </li>
+	    </ul>
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Graph Neural Networks</span>
+                <span class="tag">Molecular Dynamics</span>
+            </div>
+            <div class="project-gif">
+                <img src="/static/images/Recorded_screen_1_V3.gif" alt="GNN Molecular Dynamics Demo">
+            </div>
+        </div>
+    <footer>
+        Copyright 2024 &copy; Abin Shakya. All rights reserved.
+    </footer>
+</div>
+</body>
+</html>
